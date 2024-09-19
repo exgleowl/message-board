@@ -25,7 +25,7 @@ app.get('/api/messages', async (req, res) => {
   try {
     const { rows } = await query(`SELECT * FROM messages ORDER BY "createdAt" DESC;`)
     const messages = rows
-    res.json({ messages })
+    res.json(messages)
   } catch (err) {
     res.status(500).end()
   }

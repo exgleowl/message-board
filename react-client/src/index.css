@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.navbar {
+  display: flex;
+  padding: .5rem 0;
+}
+
+.brand-logo {
+  color: #bec6a0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.brand-logo:hover {
+  text-decoration: underline;
+}
+
+.messages-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.message-item {
+  margin: .5rem 0;
+}
+
+.message-item .username {
+  color: #708871;
+}
+
+.messages-list .created-at {
+  color: #606676;
+  font-size: .8rem;
+}
