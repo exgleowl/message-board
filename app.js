@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser'
 import express from 'express'
-import { query } from './db.js'
+import { query } from './db/index.js'
 
 const app = new express()
 
@@ -32,4 +32,4 @@ app.get('/api/messages', async (req, res) => {
 })
 
 const PORT = process.env.PORT
-app.listen(PORT, () => `app listening on port ${PORT}`)
+app.listen(PORT, () => console.log(`app listening on port ${PORT}`))
