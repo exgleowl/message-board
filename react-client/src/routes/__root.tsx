@@ -1,6 +1,15 @@
-import * as React from 'react'
+import React, { Suspense } from 'react'
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+
+const TanStackRouterDevtools =
+  process.env.NODE_ENV === 'production'
+    ? () => null
+    : React.lazy(() =>
+        import('@tanstack/router-devtools').then((res) => ({
+          default: res.TanStackRouterDevtools,
+        })),
+      )
+
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -14,7 +23,9 @@ function RootComponent() {
         <Link className="navbar-link" to="/about">About</Link>
       </nav>
       <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
+      <Suspense>
+        <TanStackRouterDevtools position="bottom-right" />
+      </Suspense>
     </>
   )
 }
