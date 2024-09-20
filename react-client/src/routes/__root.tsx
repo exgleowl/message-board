@@ -11,6 +11,7 @@ function RootComponent() {
     <>
       <nav className="navbar">
         <Link className="brand-logo" to="/">Messages Board</Link>
+        <Link className="navbar-link" to="/about">About</Link>
       </nav>
       <Outlet />
       <TanStackRouterDevtools position="bottom-right" />

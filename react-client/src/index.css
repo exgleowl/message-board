@@ -20,7 +20,9 @@ body {
 }
 
 .navbar {
+  align-items: center;
   display: flex;
+  justify-content: space-between;
   padding: .5rem 0;
 }
 
@@ -35,6 +37,16 @@ body {
   text-decoration: underline;
 }
 
+.navbar-link {
+  color: #bec6a0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
 .messages-list {
   margin: 0;
   padding: 0;
@@ -43,6 +55,11 @@ body {
 
 .message-item {
   margin: .5rem 0;
+  overflow-wrap: anywhere;
+}
+
+.message-item p {
+  margin: 0;
 }
 
 .message-item .username {
@@ -52,4 +69,35 @@ body {
 .messages-list .created-at {
   color: #606676;
   font-size: .8rem;
+}
+
+.new-message-form {
+  border: 1px solid #bec6a0;
+  border-bottom: 1px solid #606676;
+  display: flex;
+  gap: 1rem;
+}
+
+.new-message-form label {
+  display: none;
+}
+
+.new-message-form input {
+  border: none;
+  outline: none;
+}
+
+.new-message-form input:first-of-type {
+  max-width: 10rem;
+}
+
+.new-message-form input:last-of-type {
+  flex-grow: 1;
+}
+
+.new-message-form button {
+  background-color: #bec6a0;
+  border: none;
+  cursor: pointer;
+  padding: .5rem 1rem;
 }

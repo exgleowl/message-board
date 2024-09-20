@@ -1,6 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import MessagesList from '../components/messages-list'
+import NewMessageForm from '../components/new-message-form'
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
@@ -19,8 +20,10 @@ export const Route = createFileRoute('/')({
 
 function HomeComponent() {
   const messages = Route.useLoaderData()
+
   return (
     <main>
+      <NewMessageForm />
       <MessagesList messages={messages} />
     </main>
   )
