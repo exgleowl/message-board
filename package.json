@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config",
-    "start": "node app.js"
+    "start": "node app.js",
+    "migrate": "node db/seeds.js"
   },
   "keywords": [],
   "author": "",
