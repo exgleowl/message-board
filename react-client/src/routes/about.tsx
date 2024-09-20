@@ -7,8 +7,9 @@ export const Route = createFileRoute('/about')({
 
 function AboutComponent() {
   return (
-    <div className="p-2">
-      <h3>About</h3>
-    </div>
+    <main>
+      <h2 style={{ color: "#bec6a0" }}>About</h2>
+      <p style={{ color: "#606676" }}>A simple message board app, build with Express.js, pg-node and React</p>
+    </main>
   )
 }
