@@ -1,32 +1,26 @@
 import { useRouter } from '@tanstack/react-router'
-import { SyntheticEvent } from 'react'
+import { SyntheticEvent, useRef } from 'react'
 
 export default function NewMessageForm() {
   const router = useRouter()
 
-  const onSubmit = (e: SyntheticEvent) => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
+    const target = e.target as HTMLFormElement
+    const formData = new FormData(target)
     
-    const postNewMessage = async (formData: FormData) => {
-      try {
-        const res = await fetch('/api/messages', {
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          method: 'POST',
-          body: JSON.stringify({
-            username: formData.get('username'),
-            text: formData.get('message')
-          })
-        })
-        router.invalidate()
-      } catch (err) {
-        console.error(err)
-      }
-    }
-
-    postNewMessage(formData)
+    await fetch('/api/messages', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        username: formData.get('username'),
+        text: formData.get('message')
+      })
+    })
+    router.invalidate()
+    target.reset()
   }
 
   return (
