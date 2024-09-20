@@ -13,7 +13,7 @@ app.post('/api/messages', async (req, res) => {
       return res.status(400).end()
     }
 
-    const { rows } = await query(`INSERT INTO messages(username, text) VALUES($1, $2);`, [username, text])
+    const { rows } = await query(`INSERT INTO messages(username, text) VALUES($1, $2) RETURNING *;`, [username, text])
     const newMessage = rows[0]
     res.status(201).json(newMessage)
   } catch (err) {
