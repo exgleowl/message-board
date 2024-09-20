@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import bodyParser from 'body-parser'
 import express from 'express'
 import { query } from './db/index.js'
@@ -5,6 +6,7 @@ import { query } from './db/index.js'
 const app = new express()
 
 app.use(bodyParser.json())
+app.use(express.static('public'))
 
 app.post('/api/messages', async (req, res) => {
   try {
@@ -29,6 +31,10 @@ app.get('/api/messages', async (req, res) => {
   } catch (err) {
     res.status(500).end()
   }
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(`${resolve()}/public/index.html`)
 })
 
 const PORT = process.env.PORT
