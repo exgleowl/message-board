@@ -4,7 +4,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon -r dotenv/config"
+    "dev": "nodemon -r dotenv/config",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
